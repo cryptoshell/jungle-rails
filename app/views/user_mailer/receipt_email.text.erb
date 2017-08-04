@@ -1,0 +1,16 @@
+Thanks for shopping on jungle.com, <%= @order.email %>
+===============================================
+ 
+You have successfully placed an order.
+
+Your order: #<%= @order.id %>
+
+<% @order.line_items.each do |line_item| %>
+  <%= line_item.product.name %> | <%= line_item.product.quantity %> | <%= line_item.product.price %>
+<% end %>
+
+Total: <%= @order.total %>
+
+To continue shopping, just follow this link: <%= @url %>.
+ 
+Thanks for shopping with us and have a great day!
