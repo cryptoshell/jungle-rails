@@ -1,0 +1,16 @@
+  <tr>
+    <td>
+      <%= image_tag order_id.product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= order_id.product.name %></h4>
+      <br>
+      <p><%= order_id.product.description %></p>
+    </td>
+    <td>
+      <%= order_id.product.quantity %>
+    </td>
+    <td>
+      <%= order_id.product.price * order_id.product.quantity %>
+    </td>
+  </tr>
