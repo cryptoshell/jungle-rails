@@ -12,6 +12,12 @@ class ReviewsController < ApplicationController
       end
   end
 
+  def destroy
+    @review = Review.find params[:id]
+    @review.destroy
+    redirect_to product_path(@review.product_id), notice: 'Review was successfully destroyed.'
+  end
+
   private
     def require_login
         unless current_user

@@ -26,30 +26,31 @@
       </div>
     </div>
     <br/>
-  
+    <br/>
     <% if current_user %>
       <%= form_for [@product, @review] do |f| %>
-        <div class="form_field">
+        <div class="form-group row">
           <%= f.label(:description) %>
           <%= f.text_field(:description) %>
         </div>
         
-        <div class="form_field">
+        <div class="form-group row">
           <%= f.label(:rating) %>
           <%= f.select :rating, [1, 2, 3, 4, 5], prompt: 'Select One' %>
         </div>
         
-        <div class="actions">
-          <%= f.submit %>
+        <div class="form-group row">
+          <%= f.submit 'Post Review', class: 'btn btn-info' %>
         </div>
       <% end %>
     <% end %>
-
+    
+    <br/>
     <div class="col-sm-8">
       <dl class="dl-horizontal">
         <% @product.reviews.reverse_each do |review| %>
-          <dt>User ID</dt>
-          <dd><%= review.user_id %></dd>
+          <dt>User</dt>
+          <dd><%= review.user.name %></dd>
           <dt>Description</dt>
           <dd><%= review.description %></dd>
           <dt>Rating</dt>
@@ -61,10 +62,17 @@
               ★ ️
             <% end %>
           </dd>
-          <dt>Created at</dt>
-          <dd><%= review.created_at %></dd>
+          <dt>Posted at</dt>
+          <dd>
+          <%= review.created_at %>
+          <% if current_user === review.user %>
+            <%= link_to fa_icon('trash'), review_path(review), 
+            class: 'btn btn-sm btn-danger', method: :delete, 
+            data: { confirm: "Are you sure?" } %>
+          <% end %>
+          </dd>
           <br/>
-        <% end %>
+          <% end %>
       </dl>
     </div>
   </article>
