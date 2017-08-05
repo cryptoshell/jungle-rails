@@ -10,7 +10,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 !["Admin Categories List"](/docs/admin-categories.png "Admin Categories List")
 !["Cart"](/docs/cart.png "Cart")
 !["Payment"](/docs/payment.png "Payment")
-!["Order"](/docs/order.png "Payment")
+!["Order"](/docs/order.png "Successful Order")
 
 ## Setup
 
