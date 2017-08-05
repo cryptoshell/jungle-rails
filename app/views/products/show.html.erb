@@ -25,7 +25,47 @@
         </dl>
       </div>
     </div>
+    <br/>
+  
+    <% if current_user %>
+      <%= form_for [@product, @review] do |f| %>
+        <div class="form_field">
+          <%= f.label(:description) %>
+          <%= f.text_field(:description) %>
+        </div>
+        
+        <div class="form_field">
+          <%= f.label(:rating) %>
+          <%= f.select :rating, [1, 2, 3, 4, 5], prompt: 'Select One' %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    <% end %>
 
+    <div class="col-sm-8">
+      <dl class="dl-horizontal">
+        <% @product.reviews.reverse_each do |review| %>
+          <dt>User ID</dt>
+          <dd><%= review.user_id %></dd>
+          <dt>Description</dt>
+          <dd><%= review.description %></dd>
+          <dt>Rating</dt>
+          <dd>
+            <% for i in 1..review.rating do %>
+              ⭐ ️
+            <% end %>
+            <% for i in 1..(5 - review.rating) do %>
+              ★ ️
+            <% end %>
+          </dd>
+          <dt>Created at</dt>
+          <dd><%= review.created_at %></dd>
+          <br/>
+        <% end %>
+      </dl>
+    </div>
   </article>
-
 </section>
