@@ -2,6 +2,15 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Final Product
+!["Home Page"](/docs/home.png "Home Page Displaying Products")
+!["Product & Reviews"](/docs/product-reviews.png "Product Information and Reviews")
+!["Add Review"](/docs/addreview.png "Authenticated Users Can Add a Review")
+!["Admin Products List"](/docs/admin-categories.png "Admin Products List")
+!["Admin Categories List"](/docs/admin-categories.png "Admin Categories List")
+!["Cart"](/docs/cart.png "Cart")
+!["Payment"](/docs/payment.png "Payment")
+!["Order"](/docs/order.png "Payment")
 
 ## Setup
 
