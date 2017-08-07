@@ -27,14 +27,12 @@
     </div>
     <br/>
     <br/>
-    <br/>
     <% if current_user %>
       <div class="col-sm-4">
+      <h3>Post a Review</h3>
         <%= form_for [@product, @review] do |f| %>
           <div class="form-group">
-            <%= f.label :description %>
-            <br/> 
-            <%= f.text_area :description, size: '41', placeholder: 'Add a review' %>  
+            <%= f.text_area :description, size: '40x7', placeholder: 'Thoughts about this product' %>  
             <br/>
             <br/>
             <%= f.label :rating %> 
@@ -47,9 +45,14 @@
         <% end %>
       </div>
     <% end %>
-    
+
     <div class="col-sm-8">
       <dl class="dl-horizontal">
+        <dt><h3>Reviews</h3><dt>
+        <dd></dd>
+        <% if @product.reviews.count == 0 %>
+          <dt>No reviews</dt>
+        <% end %>
         <% @product.reviews.reverse_each do |review| %>
           <dt>User</dt>
           <dd><%= review.user.name %></dd>

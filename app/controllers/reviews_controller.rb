@@ -6,9 +6,9 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.new(review_params)
     @review.user = current_user
       if @review.save
-        redirect_to product_path(@product.id)
+        redirect_to product_path(@product.id), notice: 'Review was posted successfully!'
       else
-        redirect_to @product
+        redirect_to @product, alert: 'Cannot Post - Incomplete Review!'
       end
   end
 
@@ -21,7 +21,6 @@ class ReviewsController < ApplicationController
   private
     def require_login
         unless current_user
-          flash[:error] = "You must be logged in to add a review"
           redirect_to login_path
         end
     end
