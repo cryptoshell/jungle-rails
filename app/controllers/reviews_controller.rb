@@ -8,14 +8,14 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to product_path(@product.id), notice: 'Review was posted successfully!'
       else
-        redirect_to @product, alert: 'Cannot Post - Incomplete Review!'
+        render template: 'products/show'
       end
   end
 
   def destroy
     @review = Review.find params[:id]
     @review.destroy
-    redirect_to product_path(@review.product_id), notice: 'Review was successfully destroyed.'
+    redirect_to product_path(@review.product_id), notice: 'Review was successfully deleted.'
   end
 
   private
