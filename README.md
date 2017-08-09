@@ -5,6 +5,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Final Product
 !["Home Page"](/docs/home.png "Home Page Displaying Products")
 !["Product & Reviews"](/docs/product-reviews.png "Product Information and Reviews")
+!["Register"](/docs/register.png "Register")
+!["Login"](/docs/login.png "Login")
 !["Add Review"](/docs/addreview.png "Authenticated Users Can Add a Review")
 !["Admin Products List"](/docs/admin-products.png "Admin Products List")
 !["Admin Categories List"](/docs/admin-categories.png "Admin Categories List")
